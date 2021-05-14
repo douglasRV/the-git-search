@@ -49,7 +49,6 @@ export class GitSearchComponent implements OnInit {
   openmodal(name: string) {
     console.log('name', name);
     const modalRef = this.modalService.open(GitSearchModalComponent, {
-      // windowClass : 'myCustomModalClass'
       size: 'xl'
     });
 
