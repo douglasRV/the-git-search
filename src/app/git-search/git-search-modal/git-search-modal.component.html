@@ -1,0 +1,83 @@
+<!-- <div class="modal-header" *ngIf="name">
+  {{ name }} Starships
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div> -->
+
+
+<div class="row modalRow">
+  <div class="col-3">
+    <img class="imgModal" src="{{ results.avatar_url }}">
+  </div>
+  <div class="info col-9">
+    <a class="text-title">{{ results.login }}</a>
+    <hr>
+    <div class="row infoRow">
+      <div class="col-6">
+        <a class="text">Username:</a>
+        <br><a class="text-result">{{ results.login }}</a>
+      </div>
+      <div class="col-6 text-right">
+        <a class="text">Seguindo:</a>
+        <br><a class="text-result">{{ results.following }}</a>
+      </div>
+    </div>
+    <div class="row infoRow">
+      <div class="col-6">
+        <a class="text">Cadastrado(a):</a>
+        <br><a class="text-result">{{ results.created_at }}</a>
+      </div>
+      <div class="col-6 text-right">
+        <a class="text">Seguidores:</a>
+        <br><a class="text-result">{{ results.followers }}</a>
+      </div>
+    </div>
+    <div class="row infoRow">
+      <div class="col-6">
+        <a class="text">URL: </a>
+        <br><a href="{{ results.html_url }}" class="text-result">{{ results.html_url }}</a>
+      </div>
+    </div>
+    <br>
+    <div class="text-right">
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Cross click')">
+        Fechar
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div *ngIf="name">
+  <table class="table container-fluid table-responsive-md">
+    <thead class="thead-dark">
+      <tr align="center">
+        <th scope="col">Nome</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Fabricante</th>
+        <th scope="col">Classe</th>
+        <th scope="col">Capacidade de Carga</th>
+        <th scope="col">Consumíveis</th>
+        <th scope="col">Custo</th>
+        <th scope="col">Comprimento</th>
+        <th scope="col">Velocidade</th>
+        <th scope="col">Criado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of starships" align="center">
+        <th>{{ item.name }}</th>
+        <td>{{  item.model  }}</td>
+        <td>{{  item.manufacturer }}</td>
+        <td>{{  item.starship_class }}</td>
+        <th>{{  item.cargo_capacity }}</th>
+        <td>{{  item.consumables }}</td>
+        <td>{{  item.cost_in_credits }}</td>
+        <td>{{  item.length }}</td>
+        <td>{{  item.max_atmosphering_speed }}</td>
+        <td>{{  formatDate(item.created)  }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

@@ -1,0 +1,54 @@
+<div class="toolbar">
+  <form [formGroup]="filtroForm">
+  <div class="row rowTool">
+    <div class="logo col-1">
+      <img class="img" src="../assets/images/Logotype.svg" (click)="tabela = false"/>
+    </div>
+    <div class="input-group col-11">
+      <div class="form-outline">
+        <input type="search" id="search" class="form-control search" formControlName="Nome" placeholder="Pesquisar" (keydown.enter)="search()"/>
+      </div>
+      <button type="button" class="btn btn-primary searchBtn" (click)="search()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="!tabela">
+  <div class="container">
+    <img class="img-shadow" src="../assets/images/Logotype - Shadow.jpg"/>
+  </div>
+</div>
+
+<div *ngIf="tabela">
+  <div class="background">
+    <div class="container">
+      <div class="row" style="padding-left: 10px;">
+        <div class="col-12">
+          <a>Resultados para: {{ nome }}</a>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div *ngFor="let item of dados">
+        <!-- <div *ngFor="let item of dados"> -->
+          <div class="card">
+            <img class="card-img-top imgCard" src="{{ item.avatar_url }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.login }}</h5>
+              <a class="card-text" href="{{ item.html_url }}">{{ item.html_url }}</a>
+              <div class="star-ratings-css mb-3" title="{{ item.score }}"></div>
+              <a class="btn btn-primary modalBtn" (click)="openmodal(item.login)">VER MAIS</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pages" *ngIf="quantidade">
+        <ngb-pagination class="paggination" [collectionSize]="quantidade" [(page)]="page" [maxSize]="5" [ellipses]="false"
+         [boundaryLinks]="true" (pageChange)="search($event)"></ngb-pagination>
+      </div>
+    </div>
+  </div>
+</div>
